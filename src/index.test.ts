@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import { parse, generate, validate, parseBarcode } from '.'
+import { generate, parse, parseBarcode, validate } from '.'
 
 test('Invalid string passed to parser', () => {
   expect(parse('AAAA0000')).toBeFalsy()
@@ -173,4 +173,17 @@ test('Convert BOT Barcode to Bill Payment (Invalid, data loss)', () => {
   expect(
     parseBarcode('|099400016550100\r123456789012\r670429')?.toQrTag30(),
   ).toBeFalsy()
+})
+
+test('Generate K shop', () => {
+  expect(
+    generate.kShop({
+      billerId: '010753600031501',
+      ref1: 'KB000002002054',
+      ref2: 'KPS004KB000002002054',
+      amount: 100,
+    }),
+  ).toBe(
+    '00020101021230810016A00000067701011201150107536000315010214KB0000020020540320KPS004KB00000200205453037645802TH31690016A00000067701011301030040214KB0000020020540420KPS004KB0000020020545406100.00630478B6',
+  )
 })

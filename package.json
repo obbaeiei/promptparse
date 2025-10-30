@@ -1,6 +1,6 @@
 {
   "name": "promptparse-kshop",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "All-in-one JS library for PromptPay & EMVCo QR Codes",
   "author": "Maythiwat Chomchuen <maythiwat.chom@gmail.com>",
   "license": "MIT",

@@ -36,7 +36,8 @@ export function kShop({ billerId, ref1, ref2, amount }: KShopConfig) {
 
   const payload = [
     tag('00', '01'),
-    tag('01', !amount ? '11' : '12'),
+    // tag('01', !amount ? '11' : '12'),
+    tag('01', '11'),
     tag('30', encode(tag30)),
     tag('53', '764'),
     tag('58', 'TH'),
